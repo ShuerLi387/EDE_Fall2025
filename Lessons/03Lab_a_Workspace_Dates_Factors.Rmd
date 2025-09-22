@@ -353,9 +353,7 @@ usgs_flow_data$month <- factor(usgs_flow_data$month,
 #Plot
 ggplot(usgs_flow_data, aes(x = month)) + 
   geom_bar() + 
-  labs(title = "Number of Samples per Month", 
-       x = "Month", y = "Count") + 
-  theme_minimal()
+  scale_x_discrete(drop = FALSE)
 
 
 ```
