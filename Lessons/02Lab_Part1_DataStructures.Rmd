@@ -3,6 +3,8 @@ title: "Lab 2 - Data Structures in R"
 subtitle: "Environmental Data Analytics"
 author: "John Fay & Luana Lima"
 date: "Fall 2025"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## Objective
@@ -83,16 +85,17 @@ Find a 5-day forecast of temperatures (Fahrenheit) for Durham, North Carolina. C
 ```{r Vector Exercise}
 
 #Assign to the variable 'temps_F' a vector of high temperatures in F
-
+temps_F <- c(60,56,57,59,61)
+temps_F
 
 #What is the average of these temperatures 
-
+mean(temps_F)
 
 #Compute the difference between each temperature and the average calculated above
-
+temps_F - mean(temps_F)
 
 #Subtract 32 and multiply by 5/9ths to create a vector in Celsius
-
+(temps_F - 32) * 5/9
 
 ```
 
@@ -105,7 +108,7 @@ matrix1 <- matrix(1:20, nrow = 5,ncol = 4) #
 matrix1
 #matrix1 has __ rows and __ columns
 
-matrix2 <- matrix(1:20, nrow = 5, ncol = 4, byrow = TRUE) #
+matrix2 <- matrix(1:20, nrow = 5, ncol = 4, byrow = TRUE) #byrow就是这行从1开始
 matrix2
 #matrix2 has __ rows and __ columns
 
@@ -132,11 +135,11 @@ matrix1[4,  ] #
 
 matrix1[ , 3] #
 
-matrix1[c(12, 14)] #
+matrix1[c(12, 14)] #这个不懂
 
-matrix1[c(12:14)] #
+matrix1[c(12:14)] #这也不懂
 
-matrix1[2:4, 1:3] #
+matrix1[2:4, 1:3] #这个也不懂
 
 #Create a vector of 6 values
 values = c(1, 26, 24, 68, 3, 44)
@@ -163,7 +166,7 @@ matrix4['R2','C1']
 ### Exercise 1b: Matrices
 Compute the mean of column "C2" in matrix4. (Should be 14.5)
 ```{r Matrix Exercise}
-
+mean(matrix4[ ,"C2" ])
 ```
 
 
@@ -200,6 +203,7 @@ list1[1:2]
 
 #
 list1$name = "Janelle"
+list1$pet = "Fido"
 
 #
 list1[[4]] = 44
@@ -240,7 +244,7 @@ dataframe1[1:2,]
 #Extract a column
 dataframe1[,1]
 
-#Extract a column/columns from their name
+#Extract a column/columns from their name 这个没懂
 out1 <- dataframe1['Color']; class(out1)
 
 out2 <- dataframe1$Color; class(out2)
