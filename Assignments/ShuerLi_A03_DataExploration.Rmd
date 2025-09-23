@@ -83,9 +83,9 @@ str(Litter)
 #Dimensions of the dataset
 dim(Neonics) #number of rows, number of columns
 
-#The Neonics has 4623 rows and 30 columns. Each row represents one experimental record from the ECOTOX database (e.g., one study result for a particular insect under a specific treatment). Each column represents a variable describing the experiment (such as species, concentration, effect, endpoint, test location, or year). In other words, the dimensions tell us how many observations we have and how much information is recorded about each one.
-
 ```
+The Neonics dataset has 4623 rows and 30 columns. Each row represents one experimental record from the ECOTOX database (e.g., one study result for a particular insect under a specific treatment). Each column represents a variable describing the experiment (such as species, concentration, effect, endpoint, test location, or year). In other words, the dimensions tell us how many observations we have and how much information is recorded about each one.
+
 
 6.  Using the `summary` function on the "Effect" column, determine the most common effects that are studied. Why might these effects specifically be of interest? [Tip: The `sort()` command is useful for listing the values in order of magnitude...]
 
@@ -123,7 +123,7 @@ These species share several traits: They are pollinators of agricultural and eco
 
 8.  Concentrations are always a numeric value. What is the class of `Conc.1..Author.` column in the dataset, and why is it not numeric? [Tip: Viewing the dataframe may be helpful...]
 
-```{r Q8_concentrate_class}
+```{r Q8_concentration_class}
 #Check the class of the concentration column
 class(Neonics$Conc.1..Author.)
 
@@ -187,7 +187,7 @@ ggplot(Neonics, aes(x = Endpoint)) +
 
 12. Determine the class of collectDate. Is it a date? If not, change to a date and confirm the new class of the variable. Using the `unique` function, determine which dates litter was sampled in August 2018.
 
-```{r Q12_collectData_conversion}
+```{r Q12_collectDate_conversion}
 #Check class of collectDate
 class(Litter$collectDate)
 
@@ -200,6 +200,7 @@ class(Litter$collectDate)
 unique(Litter$collectDate[format(Litter$collectDate, "%Y-%m") == "2018-08"])
 
 ```
+After conversion, collectDate is of class Date. Litter was sampled in August 2018 on: 2018-08-02 and 2018-08-30.
 
 13. Using the `unique` function, list the different plotIDs sampled at Niwot Ridge. How is the information obtained from `unique` different from that obtained from `summary`?
 
