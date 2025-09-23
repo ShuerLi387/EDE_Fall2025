@@ -20,14 +20,19 @@ library(tidyverse); library(lubridate); library(here)
 here()
 
 #Import data
+#----ENTER THE FILENAME HERE, USING THE here() PACKAGE----
 pm25 <- read.csv(
-  #----ENTER THE FILENAME HERE, USING THE here() PACKAGE----
+  here('./Data/Raw/EPAair_PM25_NC2019_raw.csv'),
   stringsAsFactors = TRUE,
   colClasses = c("Site.ID"='factor')
 )
 
 #Fix the date
-pm25$Date <- mdy(pm25$Date)
+#Option 1
+pm25$Date <- as.Date(pm25$Date, format='%d/%m/%Y')
+
+#Option 2 (won't work if you already ran Option 1; re-read in the dataset)
+pm25$Date <- mdy (pm25$Date)
 
 ```
 
@@ -39,10 +44,17 @@ pm25$Date <- mdy(pm25$Date)
 
 ```{r Explore the data}
 # Compute the number of different sites
-
+summary (pm25$Site.ID) #-or-
+unique (pm25$Site.ID) #-or-
+levels (pm25$Site.ID) #-or-
+length(summary (pm25$Site.ID)) #-or-
+length(unique (pm25$Site.ID)) #-or-
+length(levels(pm25$Site.ID))
 
 # Compute the mean and median PM 2.5 concentration
-
+mean(pm25$Daily.Mean.PM2.5.Concentration) #-or-
+median(pm25$Daily.Mean.PM2.5.Concentration) #-or-
+summary(pm25$Daily.Mean.PM2.5.Concentration)
 
 # What are the units
 
