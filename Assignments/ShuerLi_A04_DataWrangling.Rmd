@@ -170,7 +170,7 @@ sites.keep <- c("Linville Falls","Durham Armory","Leggett","Hattie Avenue",
 EPA.daily <- EPA.all %>%
   filter(Site.Name %in% sites.keep) %>%
   group_by(Date, Site.Name, AQS_PARAMETER_DESC, COUNTY) %>%
-  summarize(DAILY_AQI_VALUE = mean(DAILY_AQI_VALUE, na.rm = TRUE),
+  summarise(DAILY_AQI_VALUE = mean(DAILY_AQI_VALUE, na.rm = TRUE),
             SITE_LATITUDE = mean(SITE_LATITUDE, na.rm = TRUE),
             SITE_LONGITUDE = mean(SITE_LONGITUDE, na.rm = TRUE),
             .groups = "drop") %>%
@@ -208,14 +208,13 @@ write.csv(EPA.tidy, row.names = FALSE,
 #12 Generate summary data frame
 EPA.summary <- EPA.tidy %>%
   group_by(Site.Name, Month, Year) %>%
-  summarize(mean_ozone = mean(Ozone, na.rm = TRUE),
+  summarise(mean_ozone = mean(Ozone, na.rm = TRUE),
             mean_pm25  = mean(`PM2.5`, na.rm = TRUE),
             .groups = "drop") %>%
   drop_na(mean_ozone)   #remove rows where ozone mean is missing
 
 #13 Check dimensions of the summary dataset
 dim(EPA.summary)
-
 
 ```
 
