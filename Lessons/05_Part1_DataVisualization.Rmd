@@ -87,7 +87,7 @@ print(O3plot)
 
 # Fix this code
 O3plot2 <- ggplot(EPAair) +
-  geom_point(aes(x = Date, y = Ozone, color = "blue"))
+  geom_point(aes(x = Date, y = Ozone, color = "blue")) #这里加了括号
 print(O3plot2)
 
 # Add additional variables
@@ -95,7 +95,7 @@ print(O3plot2)
 PMplot <- 
   ggplot(EPAair, aes(x = Month, y = PM2.5, shape = as.factor(Year), color = Site.Name)) +
   geom_point()
-print(PMplot)
+print(PMplot) #这里没加括号
 
 # Separate plot with facets
 PMplot.faceted <-
@@ -175,7 +175,7 @@ Nutrientplot4 <-
   ggplot(PeterPaul.chem.nutrients.gathered, aes(x = lakename, y = concentration)) +
   geom_dotplot(aes(color = nutrient, fill = nutrient), binaxis = "y", binwidth = 1, 
                stackdir = "center", position = "dodge", dotsize = 2) #
-print(Nutrientplot4)
+print(Nutrientplot4) #为什么又有color 又有fill
 
 # Violin plot
 Nutrientplot5 <-
