@@ -28,14 +28,10 @@ This exercise accompanies the lessons in Environmental Data Analytics (ENV872L) 
 
 ```{r Prepare workspace, error=F, warning=F}
 #1. 
-library(tidyverse)
-library(sf)
-library(leaflet)
-library(here)
-library(mapview)
+
 
 #2. 
-here()
+
 
 ```
 
