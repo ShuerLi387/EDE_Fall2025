@@ -46,7 +46,8 @@ Indicate this website as the as the URL to be scraped. (In other words, read the
 
 ```{r set.the.scraping.website}
 #2 Read the Durham 2024 LWSP web page into a webpage object
-the_url <- "https://www.ncwater.org/WUDC/app/LWSP/report.php?pwsid=03-32-010&year=2024"
+the_url <- 
+  "https://www.ncwater.org/WUDC/app/LWSP/report.php?pwsid=03-32-010&year=2024"
 the_website <- read_html(the_url)
 
 ```
