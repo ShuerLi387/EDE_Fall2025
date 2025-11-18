@@ -86,7 +86,7 @@ the_ownership <- the_website %>%
   html_text()
 print(the_ownership)
 
-# Maximum Day Use (MGD) — 12 monthly values
+# Maximum Day Use (MGD)
 max_day_use <- the_website %>% 
   html_nodes("th~ td+ td") %>% 
   html_text()
@@ -172,7 +172,7 @@ scrape_lwsp <- function(pwsid, year) {
   month_order <- c("Jan","Feb","Mar","Apr","May","Jun",
                    "Jul","Aug","Sep","Oct","Nov","Dec")
   
-  # Build dataframe (same style as Q4)
+  # Build dataframe
   df_lwsp <- data.frame(
     "Month" = month_order,
     "Year" = rep(year, 12),
